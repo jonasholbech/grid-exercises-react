@@ -1,24 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
-
+import Exercise from "./Exercise";
+import exercises from "./exercises.js";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      {exercises.map((ex, index) => {
+        return <Exercise key={index} number={index + 1} {...ex}></Exercise>;
+      })}
+    </main>
   );
 }
 
