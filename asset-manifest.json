@@ -1,22 +1,19 @@
 {
   "files": {
-    "main.css": "/grid-exercises-react/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/grid-exercises-react/static/js/main.a5a1469b.chunk.js",
-    "main.js.map": "/grid-exercises-react/static/js/main.a5a1469b.chunk.js.map",
-    "runtime-main.js": "/grid-exercises-react/static/js/runtime-main.00b50c26.js",
-    "runtime-main.js.map": "/grid-exercises-react/static/js/runtime-main.00b50c26.js.map",
+    "main.js": "/grid-exercises-react/static/js/main.ed4346ca.chunk.js",
+    "main.js.map": "/grid-exercises-react/static/js/main.ed4346ca.chunk.js.map",
+    "runtime-main.js": "/grid-exercises-react/static/js/runtime-main.db47d297.js",
+    "runtime-main.js.map": "/grid-exercises-react/static/js/runtime-main.db47d297.js.map",
     "static/js/2.a3158843.chunk.js": "/grid-exercises-react/static/js/2.a3158843.chunk.js",
     "static/js/2.a3158843.chunk.js.map": "/grid-exercises-react/static/js/2.a3158843.chunk.js.map",
-    "static/js/3.4bfb7382.chunk.js": "/grid-exercises-react/static/js/3.4bfb7382.chunk.js",
-    "static/js/3.4bfb7382.chunk.js.map": "/grid-exercises-react/static/js/3.4bfb7382.chunk.js.map",
+    "static/js/3.7b2919d3.chunk.js": "/grid-exercises-react/static/js/3.7b2919d3.chunk.js",
+    "static/js/3.7b2919d3.chunk.js.map": "/grid-exercises-react/static/js/3.7b2919d3.chunk.js.map",
     "index.html": "/grid-exercises-react/index.html",
-    "static/css/main.6dea0f05.chunk.css.map": "/grid-exercises-react/static/css/main.6dea0f05.chunk.css.map",
     "static/js/2.a3158843.chunk.js.LICENSE.txt": "/grid-exercises-react/static/js/2.a3158843.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.00b50c26.js",
+    "static/js/runtime-main.db47d297.js",
     "static/js/2.a3158843.chunk.js",
-    "static/css/main.6dea0f05.chunk.css",
-    "static/js/main.a5a1469b.chunk.js"
+    "static/js/main.ed4346ca.chunk.js"
   ]
 }
