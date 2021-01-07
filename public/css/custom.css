@@ -266,3 +266,32 @@ code {
   font-family: "Roboto Mono", Consolas, Monaco, "Andale Mono", "Ubuntu Mono",
     monospace !important;
 }
+
+* {
+  --responsive1: (var(--min-font) * 1px) + (var(--max-font) - var(--min-font)) *
+    ((100vw - 375px) / (895 - 375));
+  --responsive2: (var(--min-font) * 1px) + (var(--max-font) - var(--min-font)) *
+    ((100vw - 896px) / (1200 - 896));
+}
+
+.container .box {
+  --min-font: 11;
+  --max-font: 29;
+  font-size: clamp(
+    var(--min-font) * 1px,
+    var(--responsive1),
+    var(--max-font) * 1px
+  );
+}
+
+@media (min-width: 896px) {
+  .container .box {
+    --min-font: 14;
+    --max-font: 20;
+    font-size: clamp(
+      var(--min-font) * 1px,
+      var(--responsive2),
+      var(--max-font) * 1px
+    );
+  }
+}

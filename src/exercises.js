@@ -16,20 +16,6 @@ const exercises = [
     title: "Simpelt grid",
     task: "Lav tre kolonner, som er lige brede.",
     startingCSS: `.container {
-        display: block;
-    }`,
-    referenceCSS: `.container {
-        display: grid;
-        /*I could also use grid-template-columns: repeat(3, 1fr) */
-        grid-template-columns: 1fr 1fr 1fr;    
-    }`,
-    image: "grid-exercise-1.webp",
-  },
-  {
-    canAddBoxes: true,
-    title: "Simpelt grid",
-    task: "Lav tre kolonner, som er lige brede.",
-    startingCSS: `.container {
     display: block;
 }`,
     referenceCSS: `.container {
