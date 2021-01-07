@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 //TODO: clear storage (globally and per ex)
 export default function Exercise({
   number,
@@ -16,11 +16,14 @@ export default function Exercise({
   canAddBoxes = false,
 }) {
   const exerciseKey = `ex${number}`;
+  const textareaEl = useRef(null);
   const [css, setCSS] = useState(
     localStorage.getItem(exerciseKey) || startingCSS
   );
   const [boxes, setBoxes] = useState(startingBoxes);
-
+  useEffect(() => {
+    textareaEl.current.focus();
+  }, [css]);
   function prefix(str) {
     const classReg = /(\.[a-z])/gi;
     return str.replaceAll(
@@ -29,8 +32,10 @@ export default function Exercise({
     );
   }
   function updateCSS(evt) {
+    console.log(evt.target.value, localStorage.getItem(exerciseKey));
     setCSS(evt.target.value);
     localStorage.setItem(exerciseKey, evt.target.value);
+    console.log(evt.target.value, localStorage.getItem(exerciseKey));
   }
   return (
     <section data-exercise-key={exerciseKey}>
@@ -125,20 +130,22 @@ export default function Exercise({
           autoCapitalize="off"
           className="prism-live language-css"
           value={css}
+          ref={textareaEl}
           onChange={updateCSS}
         ></textarea>
 
         <style className="style">{prefix(css)}</style>
       </div>
-      {/*<button
+      <button
         type="button"
         className="reset"
         onClick={() => {
           updateCSS({ target: { value: startingCSS } });
+          setBoxes(startingBoxes);
         }}
       >
         Reset
-    </button>*/}
+      </button>
     </section>
   );
 }
