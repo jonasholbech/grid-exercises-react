@@ -1,4 +1,5 @@
 import { useState } from "react";
+//TODO: clear storage (globally and per ex)
 export default function Exercise({
   number,
   startingCSS = `.container {
@@ -14,20 +15,32 @@ export default function Exercise({
   startingBoxes = 9,
   canAddBoxes = false,
 }) {
-  const [css, setCSS] = useState(startingCSS);
+  const exerciseKey = `ex${number}`;
+  const [css, setCSS] = useState(
+    localStorage.getItem(exerciseKey) || startingCSS
+  );
   const [boxes, setBoxes] = useState(startingBoxes);
+
+  function prefix(str) {
+    const classReg = /(\.[a-z])/gi;
+    return str.replaceAll(
+      classReg,
+      (match) => `section[data-exercise-key="${exerciseKey}"] ${match}`
+    );
+  }
   function updateCSS(evt) {
     setCSS(evt.target.value);
+    localStorage.setItem(exerciseKey, evt.target.value);
   }
   return (
-    <section className={`ex${number}`}>
+    <section data-exercise-key={exerciseKey}>
       <header>
         <div className="small-label">Øvelse</div>
         <h2>{title}</h2>
       </header>
 
       <figure>
-        <img src={`img/${image}`} alt={title} />
+        <img src={`/grid-exercises-react/img/${image}`} alt={title} />
         <figcaption>
           <p dangerouslySetInnerHTML={{ __html: task }} />
           <ul className="hints">
@@ -55,6 +68,16 @@ export default function Exercise({
           </ul>
         </figcaption>
       </figure>
+      {/*<details>
+        <summary>My DOM</summary>
+        <pre>
+          {`<div class="container>\n`}
+          {[...Array(boxes)].map((b, i) => {
+            return `  <div class=".box-${i + 1}">.box-${i + 1}</div>\n`;
+          })}
+          {`</div>\n`}
+        </pre>
+        </details>*/}
       {canAddBoxes && (
         <div className="controls">
           <div>
@@ -104,8 +127,18 @@ export default function Exercise({
           value={css}
           onChange={updateCSS}
         ></textarea>
-        <style className="style">{css}</style>
+
+        <style className="style">{prefix(css)}</style>
       </div>
+      {/*<button
+        type="button"
+        className="reset"
+        onClick={() => {
+          updateCSS({ target: { value: startingCSS } });
+        }}
+      >
+        Reset
+    </button>*/}
     </section>
   );
 }
